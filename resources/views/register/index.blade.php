@@ -10,7 +10,6 @@
 <body>
     <div class="login-container">
         <div class="logo">
-            <div class="logo-icon"></div>
             <span class="logo-text">RPLFLIX</span>
         </div>
         <div class="login-header">

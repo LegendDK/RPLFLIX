@@ -11,6 +11,10 @@
     <div class="header-action">
         <a href="{{ Route('genre.create')}}" class="btn-create">➕ Create New</a>
         <div>👤 {{ Auth::user()->name }}</div>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn-logout">🚪 Logout</button>
+        </form>
     </div>
 </header>
 <h1>🎬 Genre</h1>

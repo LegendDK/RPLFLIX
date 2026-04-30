@@ -36,9 +36,9 @@
 <div style="margin-top:20px;">
     <form action="{{ Route('content.destroy', $content->id) }}" onsubmit="return confirm('Are You Sure?')" method="post">
         @csrf
-        <a href="{{ Route('content.edit', $content->id) }}"><button class="btn-show">Edit</button></a>
         @method('DELETE')
-        <button type="submit" class="btn-show">Delete</button>
+        <a href="{{ Route('content.edit', $content->id) }}" class="btn-edit">Edit</a>
+        <button type="submit" class="btn-delete">Delete</button>
     </form>
 </div>
 @endif

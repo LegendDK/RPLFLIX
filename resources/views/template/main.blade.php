@@ -11,7 +11,6 @@
     <div class="dashboard-container" id="dashboard-container">
         <aside class="sidebar">
             <div class="sidebar-logo">
-                <div class="logo-icon"></div>
                 <span class="logo-text">RPLFLIX</span>
             </div>
 
@@ -45,15 +44,6 @@
                     </a>
                 </li>
                 @endif
-
-                <li class="nav-item">
-                    <a href="{{ route('logout') }}" class="nav-link">
-                        <form action="{{ route('logout') }}" method="POST">
-                            @csrf
-                            <button type="submit" class="logout-button">🚪 Logout</button>
-                        </form>
-                    </a>
-                </li>
             </ul>
         </aside>
 

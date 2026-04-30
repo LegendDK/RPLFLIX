@@ -1,10 +1,10 @@
 @extends('template.main')
-@section('title', 'Detail Genre')
+@section('title', 'Detail User')
 @section('content')
 
 <div class="header">
     <div class="header-action">
-        <p><a href="{{ route('genre.index') }}">Genre</a> /Detail</p>
+        <p><a href="{{ route('user.index') }}">User</a> /Detail</p>
     </div>
 </div>
 
@@ -20,9 +20,9 @@
 <div style="margin-top:20px;">
     <form action="{{ Route('user.destroy', $user->id) }}" onsubmit="return confirm('Are You Sure?')" method="post">
         @csrf
-        <a href="{{ Route('user.edit', $user->id) }}"><button class="btn-show">Edit</button></a>
         @method('DELETE')
-        <button type="submit" class="btn-show">Delete</button>
+        <a href="{{ Route('user.edit', $user->id) }}" class="btn-edit">Edit</a>
+        <button type="submit" class="btn-delete">Delete</button>
     </form>
 </div>
 

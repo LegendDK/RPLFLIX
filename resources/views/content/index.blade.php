@@ -10,6 +10,10 @@
             <a href="{{ route('content.create') }}" class="btn-create">➕ Create New</a>
         @endif
         <div>👤 {{ Auth::user()->name }}</div>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn-logout">🚪 Logout</button>
+        </form>
     </div>
 </header>
 <h1>🎥 Content</h1>

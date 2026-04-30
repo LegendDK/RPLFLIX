@@ -18,9 +18,9 @@
 <div style="margin-top:20px;">
     <form action="{{ Route('genre.destroy', $genre->id) }}" onsubmit="return confirm('Are You Sure?')" method="post">
         @csrf
-        <a href="{{ Route('genre.edit', $genre->id) }}"><button class="btn-show">Edit</button></a>
         @method('DELETE')
-        <button type="submit" class="btn-show">Delete</button>
+        <a href="{{ Route('genre.edit', $genre->id) }}" class="btn-edit">Edit</a>
+        <button type="submit" class="btn-delete">Delete</button>
     </form>
 </div>
 

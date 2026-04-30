@@ -10,6 +10,10 @@
     </div>
     <div class="header-action">
         <div>👤 {{ Auth::user()->name }}</div>
+        <form action="{{ route('logout') }}" method="POST">
+            @csrf
+            <button type="submit" class="btn-logout">🚪 Logout</button>
+        </form>
     </div>
 </header>
 

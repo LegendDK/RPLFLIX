@@ -11,9 +11,13 @@ class UserController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $user = User::all();
+        if($request->get('keyword')){
+            $user = User::where('name', 'LIKE', '%' . $request->get('keyword') . '%')->get();
+        }else{
+            $user = User::all();
+        }
         return view('user.index', compact('user'));
     }
 
@@ -72,16 +76,11 @@ class UserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
-            'gender' => 'required',
-            'password' => 'nullable|min:6',
-            'role' => 'required'
         ]);
     
         $data = [
             'name' => $request->name,
             'email' => $request->email,
-            'gender' => $request->gender,
-            'role' => $request->role,
         ];
         
         if ($request->filled('password')) {
