@@ -17,7 +17,39 @@
     </div>
 </header>
 <h1>👤 User</h1>
-<div class="feature-cards-flex">
+<table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Role</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(request()->query('keyword'))
+            <p>Hasil pencarian untuk: <strong>{{ request()->query('keyword') }}</strong> {{ count($user) }} hasil <a href="{{ route('user.index') }}">Reset</a></p>
+        @endif
+        @foreach($user as $rowUser)
+        <tr onclick="window.location.href='{{ route('user.show', $rowUser->id)}}'">
+            <td>{{ $loop->iteration }}</td>
+            <td>{{ $rowUser->name }}</td>
+            <td>{{ $rowUser->email }}</td>
+            <td>{{ $rowUser->role }}</td>
+            <td>
+                <form action="{{ Route('user.destroy', $row->id ) }}" onsubmit="return confirm('are you sure?')" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <a href="{{ Route('user.edit', $row-.id)}}">Edit</a>
+                    <button type="submit">Delete</button>
+                </form>
+            </td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+@endsection
+{{-- <div class="feature-cards-flex">
     @if(request()->query('keyword'))
         <p>Hasil pencarian untuk: <strong>{{ request()->query('keyword') }}</strong> {{ count($user) }} hasil <a href="{{ route('user.index') }}">Reset</a></p>
     @endif
@@ -30,5 +62,4 @@
         </div>
     </div>
     @endforeach
-</div>
-@endsection
+</div> --}}
