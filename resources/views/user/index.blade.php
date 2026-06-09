@@ -17,7 +17,7 @@
     </div>
 </header>
 <h1>👤 User</h1>
-<table>
+<table border="1">
     <thead>
         <tr>
             <th>No</th>
@@ -36,14 +36,6 @@
             <td>{{ $rowUser->name }}</td>
             <td>{{ $rowUser->email }}</td>
             <td>{{ $rowUser->role }}</td>
-            <td>
-                <form action="{{ Route('user.destroy', $row->id ) }}" onsubmit="return confirm('are you sure?')" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <a href="{{ Route('user.edit', $row-.id)}}">Edit</a>
-                    <button type="submit">Delete</button>
-                </form>
-            </td>
         </tr>
         @endforeach
     </tbody>
